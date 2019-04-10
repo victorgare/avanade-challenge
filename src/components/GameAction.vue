@@ -2,7 +2,7 @@
   <div>
     <div class="pt-1">
       <div
-        v-on:dragstart="dragstart({x: 1, y: 0}, $event)"
+        v-on:dragstart="dragstart({x: x, y: y}, $event)"
         v-on:dragend="dragend($event)"
         draggable="true"
         :class="arrowClass"

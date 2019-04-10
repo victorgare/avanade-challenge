@@ -58,7 +58,6 @@ export default {
 
       this.$_addMove(this.draggingItem);
       this.htmlElementsList.push(this.elementHtml);
-      console.log(this.htmlElementsList);
     }
   },
   components: {

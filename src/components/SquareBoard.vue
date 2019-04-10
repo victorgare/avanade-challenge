@@ -1,5 +1,5 @@
 <template>
-  <div @click="onClick()" class="square">{{showCharacter}}</div>
+  <div class="square">{{showCharacter}}</div>
 </template>
 
 <script>
@@ -10,11 +10,6 @@ export default {
       row: 0,
       column: 0,
       hasCharacter: false
-    }
-  },
-  methods: {
-    onClick() {
-      this.position.hasCharacter = !this.position.hasCharacter;
     }
   },
   computed: {
