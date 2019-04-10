@@ -27,7 +27,6 @@
 
 <script>
 import GameAction from "./GameAction.vue";
-import { log } from "util";
 
 export default {
   name: "GameActions",
