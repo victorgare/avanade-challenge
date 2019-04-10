@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-for="row in rowsAmount" :key="row" class="row">
-      <SquareBoard v-for="column in columnsAmount" :key="column" :x="row" :y="column"/>
+      <div v-for="column in columnsAmount" :key="column">
+        <SquareBoard :position="positions[row][column]"/>
+      </div>
     </div>
   </div>
 </template>
@@ -22,10 +24,32 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      positions: []
+    };
   },
   components: {
     SquareBoard
+  },
+  created() {
+    const rows = this.rowsAmount;
+    const columns = this.columnsAmount;
+    const positions = [];
+
+    for (let row = 1; row < rows + 1; row++) {
+      positions[row] = [];
+
+      for (let column = 1; column < columns + 1; column++) {
+        positions[row][column] = {
+          row: row,
+          column: column,
+          hasCharacter: false
+        };
+      }
+    }
+
+    this.positions = positions;
+    this.$emit("getPositions", positions);
   }
 };
 </script>

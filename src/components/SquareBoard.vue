@@ -1,19 +1,28 @@
 <template>
-  <div @click="onClick" class="square col-md-1"></div>
+  <div @click="onClick()" class="square">{{showCharacter}}</div>
 </template>
 
 <script>
 export default {
   name: "SquareBoard",
   props: {
-    x: Number,
-    y: Number
+    position: {
+      row: 0,
+      column: 0,
+      hasCharacter: false
+    }
   },
   methods: {
     onClick() {
-      const x = this.x;
-      const y = this.y;
-      console.log(`X: ${x} | Y: ${y}`);
+      this.position.hasCharacter = !this.position.hasCharacter;
+    }
+  },
+  computed: {
+    showCharacter() {
+      const hasCharacter = this.position.hasCharacter;
+      if (hasCharacter) {
+        return hasCharacter;
+      }
     }
   }
 };
