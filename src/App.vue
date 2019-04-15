@@ -44,8 +44,17 @@ export default {
     setMove(move) {
       this.moves.push(move);
     },
+    $_setStartPosition() {
+      // seta a posicao inicial do personagem
+      this.positions[1][1].hasCharacter = true;
+
+      // seta a posicao da linha de chegada
+      this.positions[this.rowsAmount][this.columnsAmount].isFinishLine = true;
+    },
     getPositions(positions) {
       this.positions = positions;
+
+      this.$_setStartPosition();
     },
     $_invalidMove(index) {
       this.moves.splice(index, 1);
